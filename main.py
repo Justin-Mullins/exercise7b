@@ -9,40 +9,18 @@ a separate list of strings containing authors’ names, replace all names in the
 article with _ characters.
 
 '''
-# Using this library to scrape text from artcles on the web.
-from newspaper import Article
-import nltk # For natural language processsing
 
-nltk.download('punkt') 
+names = ['Ralph Waldo', 'Troy Beckart', 'Randy Thompson', 'Stella Draper', 'Clark Walsgrove']
 
-url = input("Enter Url: ")
+test_article = 'This is a research article done by Randy Thompson, Stella Draper, and Clark Walssgrove. It is based on work already conducted by Ralph Waldo and Troy Beckart'
 
-article = Article(url, language='en')
+def remove_names(article, names):
+    # article = article.split(' ')
+    word_count = 0
+    for name in names:
+        if name in article:
+            article = article.replace(name, '_' * len(name))
+        word_count += 1
+    return article
 
-names = ['Ralph Waldo', 'Troy Beckert', 'Randy Thompson', 'Stella Draper', 'Clark Walsgrove']
-
-article.download()
-article.parse() # Parse article
-article.nlp()  # Perform natural language processoring
-text = article.text().split(' ')
-
-word_count = 0
-for name in names:
-    if name.lower() in text.lower():
-        text = text.replace(name, '_' * len(name))
-    word_count += 1  
-
-#To extract title
-print("Article's Title:")
-print(article.title)
-print("")
- 
-#To extract text
-print("Article's Text:")
-print(article.text)
-print("")
- 
-#To extract summary
-print("Article's Summary:")
-print(article.summary)
-print("")
+print(remove_names(test_article, names))
