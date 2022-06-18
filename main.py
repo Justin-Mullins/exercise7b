@@ -12,7 +12,7 @@ article with _ characters.
 
 names = ['Ralph Waldo', 'Troy Beckart', 'Randy Thompson', 'Stella Draper', 'Clark Walsgrove']
 
-test_article = 'This is a research article done by Randy Thompson, Stella Draper, and Clark Walssgrove. It is based on work already conducted by Ralph Waldo and Troy Beckart'
+test_article = 'This is a research article done by Randy Thompson, Stella Draper, and Clark Walsgrove. It is based on work already conducted by Ralph Waldo and Troy Beckart'
 
 def remove_names(article, names):
     # article = article.split(' ')
